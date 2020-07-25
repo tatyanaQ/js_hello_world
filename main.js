@@ -31,11 +31,15 @@ function setClassName(element, status) {
 	element.className = todoStatuses[status].name;
 }
 
+function getTodoDisplayName(todo) {
+	return `${todo.text}: ${todoStatuses[todo.status].displayName}`;
+}
+
 function createTodoElement({ id, text, status }) {
 	const todoElement = document.createElement('li');
 	todoElement.id = id;
 
-	const textNode = document.createTextNode(`${text}: ${todoStatuses[status].displayName}`);
+	const textNode = document.createTextNode(getTodoDisplayName({ text, status }));
 	todoElement.appendChild(textNode);
 
 	setClassName(todoElement, status);
