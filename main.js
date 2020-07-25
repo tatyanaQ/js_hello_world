@@ -35,6 +35,13 @@ function getTodoDisplayName(todo) {
 	return `${todo.text}: ${todoStatuses[todo.status].displayName}`;
 }
 
+function addListeners(element) {
+	element.addEventListener('click', (e) => {
+		const { id } = e.target;
+		console.log(id)
+	});
+}
+
 function createTodoElement({ id, text, status }) {
 	const todoElement = document.createElement('li');
 	todoElement.id = id;
@@ -43,6 +50,7 @@ function createTodoElement({ id, text, status }) {
 	todoElement.appendChild(textNode);
 
 	setClassName(todoElement, status);
+	addListeners(todoElement);
 
 	return todoElement;
 }
