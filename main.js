@@ -27,12 +27,18 @@ const todos = [{
 	status: todoStatuses.toDo.name,
 }];
 
+function setClassName(element, status) {
+	element.className = todoStatuses[status].name;
+}
+
 function createTodoElement({ id, text, status }) {
 	const todoElement = document.createElement('li');
 	todoElement.id = id;
 
 	const textNode = document.createTextNode(`${text}: ${todoStatuses[status].displayName}`);
 	todoElement.appendChild(textNode);
+
+	setClassName(todoElement, status);
 
 	return todoElement;
 }
