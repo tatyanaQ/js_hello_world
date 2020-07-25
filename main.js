@@ -13,6 +13,10 @@ const todoStatuses = {
 	},
 };
 
+todoStatuses.toDo.nextStatus = todoStatuses.inProgress;
+todoStatuses.inProgress.nextStatus = todoStatuses.done;
+todoStatuses.done.nextStatus = todoStatuses.done;
+
 const todos = [{
 	id: 1,
 	text: 'Buy a cat',
@@ -31,14 +35,25 @@ function setClassName(element, status) {
 	element.className = todoStatuses[status].name;
 }
 
+function getTodoById(id) {
+	return todos.find(todo => todo.id === id);
+}
+
 function getTodoDisplayName(todo) {
 	return `${todo.text}: ${todoStatuses[todo.status].displayName}`;
+}
+
+function setNextStatus(id) {
+	const currentTodo = getTodoById(id);
+	currentTodo.status = todoStatuses[currentTodo.status].nextStatus.name;
 }
 
 function addListeners(element) {
 	element.addEventListener('click', (e) => {
 		const { id } = e.target;
-		console.log(id)
+		setNextStatus(+id);
+
+		console.log(getTodoById(+id)) // меняется статус тудушки
 	});
 }
 
