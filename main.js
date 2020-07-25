@@ -53,7 +53,8 @@ function addListeners(element) {
 		const { id } = e.target;
 		setNextStatus(+id);
 
-		console.log(getTodoById(+id)) // меняется статус тудушки
+		const currentTodo = getTodoById(+id);
+		e.target.innerHTML = getTodoDisplayName(currentTodo);
 	});
 }
 
