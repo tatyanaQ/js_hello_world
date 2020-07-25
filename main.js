@@ -55,6 +55,7 @@ function addListeners(element) {
 
 		const currentTodo = getTodoById(+id);
 		e.target.innerHTML = getTodoDisplayName(currentTodo);
+		setClassName(e.target, currentTodo.status);
 	});
 }
 
