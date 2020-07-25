@@ -1,0 +1,19 @@
+div {
+	margin-bottom: 20px;
+}
+
+.hover:hover {
+	background-color: palegoldenrod;
+}
+
+.toDo {
+	color: blue;
+}
+
+.inProgress {
+	color: rgb(180, 180, 80);
+}
+
+.done {
+	color: green;
+}
