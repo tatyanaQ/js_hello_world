@@ -6,7 +6,7 @@ div {
 	background-color: palegoldenrod;
 }
 
-.toDo {
+.toDo:hover {
 	color: blue;
 }
 
